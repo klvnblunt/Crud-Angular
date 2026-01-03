@@ -42,4 +42,14 @@ export class Consulta {
   preparaEditar(id: string){
     this.router.navigate(['cadastro'], { queryParams:{'id': id} })
   }
+
+  prepararDeletar(cliente: Cliente){
+    cliente.deletando = true
+  }
+
+  deletar(cliente: Cliente){
+    this.service.deletar(cliente)
+    this.listaClientes = this.service.pesquisarCliente('')
+    
+  }
 }
