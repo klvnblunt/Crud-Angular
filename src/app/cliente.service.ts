@@ -6,7 +6,35 @@ import { Cliente } from './cadastro/cliente';
 })
 export class ClienteService {
   
+  static REPO_CLIENTE = "_CLIENTES"
+
+
   salvar(cliente: Cliente){
-    console.log(Cliente)
+    const storage = this.obterStorage()
+    storage.push(cliente)
+
+    localStorage.setItem(ClienteService.REPO_CLIENTE, JSON.stringify(storage))
+  }
+
+  pesquisarCliente(nomeBusca: string) : Cliente[] {
+
+    const clientes = this.obterStorage()
+    if(!nomeBusca){
+      return clientes
+    }
+
+    return clientes.filter(cliente => cliente.nome?.indexOf(nomeBusca) !== -1)
+  }
+
+  private obterStorage() : Cliente[]{
+    const repositorioClientes = localStorage.getItem(ClienteService.REPO_CLIENTE)
+    if(repositorioClientes){
+      const clientes: Cliente[] = JSON.parse(repositorioClientes)
+      return clientes
+    }
+
+    const clientes: Cliente[] = []
+    localStorage.setItem(ClienteService.REPO_CLIENTE, JSON.stringify(clientes))
+    return clientes
   }
 }

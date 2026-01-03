@@ -1,11 +1,37 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { MatInputModule } from '@angular/material/input'
+import { MatCardModule } from '@angular/material/card'
+import { FlexLayoutModule } from '@angular/flex-layout'
+import { MatIconModule } from '@angular/material/icon'
+import { FormsModule } from '@angular/forms'
+import { MatTableModule } from '@angular/material/table'
+import { MatButtonModule } from '@angular/material/button'
+import { ClienteService } from '../cliente.service';
+import { Cliente } from '../cadastro/cliente';
+import { CommonModule } from '@angular/common'
+
 
 @Component({
   selector: 'app-consulta',
-  imports: [],
+  imports: [MatInputModule, MatCardModule, FlexLayoutModule, MatIconModule, FormsModule, MatTableModule, MatButtonModule, CommonModule],
   templateUrl: './consulta.html',
   styleUrl: './consulta.scss',
 })
 export class Consulta {
 
+  nomeBusca: string = ''
+  listaClientes: Cliente[]= []
+  colunaTable: String[] = ["id", 'nome', 'cpf', 'dataNascimento', 'email']
+
+  constructor(private service: ClienteService ){
+
+  }
+
+  ngOnInit(){
+    this.listaClientes = this.service.pesquisarCliente('')
+  }
+
+  pesquisar(){
+    this.listaClientes = this.service.pesquisarCliente(this.nomeBusca)
+  }
 }
