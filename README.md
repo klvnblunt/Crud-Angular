@@ -1,59 +1,141 @@
-# CrudAngular
+# CRUD Front-end com Angular e LocalStorage
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.0.4.
+Este projeto consiste em um **CRUD desenvolvido no front-end utilizando o framework Angular**, com persistência de dados feita através do **LocalStorage do navegador**. O sistema também consome uma **API pública gratuita** para carregamento dinâmico de **estados e cidades** na tela de cadastro.
 
-## Development server
+O objetivo do projeto é **praticar Angular**, organização de componentes, serviços, rotas e integração com APIs externas, sem dependência de back-end próprio.
 
-To start a local development server, run:
+---
+
+## 🚀 Tecnologias Utilizadas
+
+* **Angular**
+* **TypeScript**
+* **HTML5**
+* **SCSS**
+* **LocalStorage (Web Storage API)**
+* **API pública de Estados e Cidades (BrasilAPI)**
+
+---
+
+## 📂 Estrutura do Projeto
+
+```bash
+src/
+ ├── app/
+ │   ├── cadastro/
+ │   │   ├── cadastro.html
+ │   │   ├── cadastro.scss
+ │   │   └── cadastro.ts
+ │   │
+ │   ├── consulta/
+ │   │   ├── consulta.html
+ │   │   ├── consulta.scss
+ │   │   └── consulta.ts
+ │   │
+ │   ├── services/
+ │   │   └── cliente.service.ts
+ │   │
+ │   ├── models/
+ │   │   └── brasilapi.models.ts
+ │   │
+ │   ├── app.routes.ts
+ │   ├── app.config.ts
+ │   └── app.ts
+ │
+ ├── index.html
+ ├── main.ts
+ └── styles.scss
+```
+
+---
+
+## 📌 Funcionalidades
+
+* Cadastro de clientes
+* Listagem (consulta) de registros cadastrados
+* Edição de registros
+* Exclusão de registros
+* Persistência de dados usando **LocalStorage**
+* Consumo de **API pública** para:
+
+  * Listagem de estados
+  * Listagem de cidades conforme o estado selecionado
+
+---
+
+## 🌐 API Externa Utilizada
+
+Foi utilizada a **BrasilAPI**, uma API pública e gratuita, para obtenção de estados e cidades.
+
+Funcionalidades consumidas:
+
+* Listar estados brasileiros
+* Listar cidades a partir do estado selecionado
+
+---
+
+## 💾 LocalStorage
+
+Os dados cadastrados são armazenados diretamente no navegador do usuário, utilizando o **LocalStorage**. Dessa forma:
+
+* Não é necessário back-end
+* Os dados permanecem salvos mesmo após recarregar a página
+* Os dados são específicos do navegador utilizado
+
+---
+
+## ⚙️ Instalação e Execução
+
+### 1️⃣ Clonar o repositório
+
+```bash
+git clone <url-do-repositorio>
+cd crud-angular
+```
+
+### 2️⃣ Instalar as dependências
+
+```bash
+npm install
+```
+
+### 3️⃣ Executar o projeto
 
 ```bash
 ng serve
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+A aplicação estará disponível em:
 
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
+```
+http://localhost:4200
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+---
 
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
+## 🧪 Testes
 
 ```bash
 ng test
 ```
 
-## Running end-to-end tests
+---
 
-For end-to-end (e2e) testing, run:
+## 🎯 Objetivo do Projeto
 
-```bash
-ng e2e
-```
+Este projeto foi desenvolvido com foco em:
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+* Aprendizado do **Angular**
+* Criação de CRUD no front-end
+* Uso do **LocalStorage** para persistência de dados
+* Consumo de APIs REST públicas
+* Organização de código e boas práticas
 
-## Additional Resources
+---
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+## ✍️ Autor
+
+**Jonas Kelvin**
+
+Projeto desenvolvido para fins de estudo e prática em desenvolvimento front-end 🚀
+****
